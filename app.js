@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const grid = document.querySelector('.grid')
     const resultDisplay = document.querySelector('#result')
+    resultDisplay.textContent = '0';
     var cardsChosen = [];
     var cardsChosenId = [];
     var cardsWon = [];
@@ -59,6 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
             card.addEventListener('click', flipCard)
             grid.appendChild(card);
         }
+    }
+
+    function wrap (el, wrapper) {
+        el.parentNode.insertBefore(wrapper, el);
+        wrapper.appendChild(el);
     }
 
     //check for matchs
@@ -99,5 +105,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     createBoard();
+    Array.prototype.forEach.call(document.images, (img) => {
+        var imgHolder = document.createElement('div')
+        imgHolder.classList.add("card-body");
+        wrap(img, imgHolder);
+    });
 })
 
