@@ -95,8 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       cards[optionOneId].setAttribute("src", "images/blank.png");
       cards[optionTwoId].setAttribute("src", "images/blank.png");
-      divFlex.classList.add("flex");
-      pText.innerHTML = "Sorry, try again";
     }
 
     cardsChosen = [];
@@ -104,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     resultDisplay.textContent = cardsWon.length;
     if (cardsWon.length === cardArray.length / 2) {
-      resultDisplay.textContent = "Congratulations! You found then all";
+      resultDisplay.textContent = "Congratulations! You found them all";
     }
   }
 
@@ -116,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     this.setAttribute("src", cardArray[cardId].img);
 
     if (cardsChosen.length === 2) {
-      setTimeout(checkForMatch, 500);
+      setTimeout(checkForMatch, 400);
     }
   }
 
