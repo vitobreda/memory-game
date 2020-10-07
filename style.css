@@ -1,72 +1,70 @@
 body {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  margin: 0;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background: rgb(217, 235, 241);
+    margin:0;
+    padding:0;
+    background-color: #1C2329;
+    overflow: hidden;
 }
 
-h1 {
-  width: 600px;
-  height: 40px;
-  text-align: center;
+.titles {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    margin:0 25%;
 }
 
-#found {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: rgba(71, 71, 71, 0.849);
-  z-index: 2;
+.container {
+    margin:0 10%;
 }
 
-#found p {
-  font-size: 20px;
-  font-weight: bold;
+.gridcenter {
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
-#found button {
-  width: 200px;
-  padding: 10px;
-  border-radius: 8px;
-  color: white;
-  border: 2px;
-  cursor: pointer;
-  background: linear-gradient(
-    90deg,
-    rgb(163, 10, 209) 0%,
-    rgb(19, 147, 221) 50%,
-    rgba(0, 212, 255, 1) 100%
-  );
+
+.grid{
+    border-radius: 25px;
+    background-color:#fff;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px;
+    grid-gap: 10px;
+    justify-items: center;
+    height: calc(75vh - 10px);
 }
 
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  width: 680px;
-  cursor: pointer;
+.card-body {
+    width: 75%;
+    height: 25%;
 }
 
-.grid img {
-  width: 150px;
-  height: 150px;
-  margin: 6px;
-  border: 3px solid;
-  border-image: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) 1;
+.card-body img {
+    width: 100%;
+    min-height: 100%;
 }
 
-.grid img:hover {
-  opacity: 0.8;
+h1 { 
+    color: #ffffff; 
+    font-family: 'Lato', sans-serif; 
+    font-size: 54px; 
+    font-weight: 300; 
+    line-height: 58px; 
+    margin: 0 0 58px; }
+
+.score {
+    width: 25%;
+    height: 10%;
+    background-color: #fff;
+    border-radius: 25px;
+    display: flex;
 }
 
-.flex {
-  display: flex !important;
+.score h3 {
+    font-size: 25px;
+    margin-left: 20%;
+}
+
+#result {
+    margin-left: 30px;
 }

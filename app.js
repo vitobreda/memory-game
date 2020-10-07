@@ -53,9 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   cardArray.sort(() => 0.5 - Math.random());
-
   const grid = document.querySelector(".grid");
   const resultDisplay = document.querySelector("#result");
+  resultDisplay.textContent = '0';
   var button = document.querySelector(".button");
   var divFlex = document.getElementById("found");
   button.onclick = function () {
@@ -83,19 +83,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  //check for matchs
-  function checkForMatch() {
-    var cards = document.querySelectorAll("img");
-    const optionOneId = cardsChosenId[0];
-    const optionTwoId = cardsChosenId[1];
-    if (cardsChosen[0] === cardsChosen[1]) {
-      divFlex.classList.add("flex");
-      pText.innerHTML = "You found a pair!";
-      cardsWon.push(cardsChosen);
-    } else {
-      cards[optionOneId].setAttribute("src", "images/blank.png");
-      cards[optionTwoId].setAttribute("src", "images/blank.png");
+    function wrap (el, wrapper) {
+        el.parentNode.insertBefore(wrapper, el);
+        wrapper.appendChild(el);
     }
+
+    //check for matchs
+    function checkForMatch() {
+        var cards = document.querySelectorAll('img')
+        const optionOneId = cardsChosenId[0]
+        const optionTwoId = cardsChosenId[1]
+        if (cardsChosen[0] === cardsChosen[1]) {
+            alert('You found a match')
+            cards[optionOneId].setAttribute('src', 'images/white.png');
+            cards[optionTwoId].setAttribute('src', 'images/white.png');
+            cardsWon.push(cardsChosen);
+        } else {
+            cards[optionOneId].setAttribute('src', 'images/blank.png');
+            cards[optionTwoId].setAttribute('src', 'images/blank.png');
+            alert('Sorry, try again')
+        }
 
     cardsChosen = [];
     cardsChosenId = [];
@@ -118,5 +125,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  createBoard();
-});
+    createBoard();
+    Array.prototype.forEach.call(document.images, (img) => {
+        var imgHolder = document.createElement('div')
+        imgHolder.classList.add("card-body");
+        wrap(img, imgHolder);
+    });
+})
+
